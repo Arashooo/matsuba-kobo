@@ -1,0 +1,9 @@
+# OS
+.DS_Store
+**/.DS_Store
+
+# 撮影した元データ（重いHEIC原本・公開不要）
+matsuba_zine/
+
+# 使っていないzineギャラリー画像
+assets/zine/
