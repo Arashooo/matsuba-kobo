@@ -7,3 +7,6 @@ matsuba_zine/
 
 # 使っていないzineギャラリー画像
 assets/zine/
+
+# 内部用（公開しない）
+お渡しメッセージ案.md
