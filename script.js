@@ -66,9 +66,26 @@
         return;
       }
       const name = form.querySelector("#name").value.trim();
-      status.textContent = `${name} 様、ありがとうございます。送信内容を確認のうえ、折り返しご連絡いたします。`;
-      form.reset();
-      // 本番では、ここで送信先（フォームサービス / メール送信API 等）へ連携してください。
+      const email = form.querySelector("#email").value.trim();
+      const subject = form.querySelector("#subject").value;
+      const message = form.querySelector("#message").value.trim();
+
+      // 入力内容を本文に詰めて、メール作成画面を開く（サーバー不要のmailto方式）
+      const to = "mail@matsuba.info";
+      const mailSubject = `【お問い合わせ】${subject}`;
+      const body =
+        `お名前：${name}\n` +
+        `メールアドレス：${email}\n` +
+        `ご用件：${subject}\n\n` +
+        `${message}\n`;
+      const mailto =
+        `mailto:${to}?subject=${encodeURIComponent(mailSubject)}` +
+        `&body=${encodeURIComponent(body)}`;
+
+      status.textContent =
+        "メールソフトが開きます。表示されたメールをそのまま送信してください。" +
+        "（開かない場合は mail@matsuba.info まで直接お送りください）";
+      window.location.href = mailto;
     });
   }
 
